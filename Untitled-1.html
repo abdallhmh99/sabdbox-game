@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?
+family=Space+Grotesk:wght@500;700&
+family=DM+Mono:wght@400;500&
+family=Caveat:wght@400;500;600
+&display=swap" rel="stylesheet">
+
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                color:  #29282D;
+            }
+
+            body{
+                background: #fff0a6;
+            }
+
+            .game{
+                display: grid;
+                grid-auto-flow : column;
+                position: relative;
+                margin-top: 15px;
+            }
+            .game::after{
+                content: "";
+                position: absolute;
+                left: 15px;
+                bottom: 0;
+                right: 15px;
+                background: #3E2942;
+                height: 1.5px;
+            }
+
+            .material-button {
+                display: flex;
+                flex-direction: column;
+                padding-left: 8px ;
+            }
+
+            .material-button >button{
+                display: inline-block;
+                width: 70px;
+                height: 70px;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            .material-button >button img{
+                display: block;
+                width: 100%;
+                height: 100%;
+                
+            }
+            
+            .real-header{
+                display: flex;
+                flex-direction: row;
+            }
+
+            .logo{
+                width: 80px;
+                height: 80px;
+                padding-left: 20px;
+                padding-top: 20px;
+                padding-right: 0px;
+            }
+
+            .logo img{
+                display: block;
+                width: 60px;
+                height: 60px;
+            }
+
+            
+            .header{
+                display:flex;
+                flex-direction: row;
+                padding-left: 10px;
+                position: relative;
+            }
+            .header-note{
+                margin-left: auto;
+                padding: 10px;
+            }
+
+        .header::after{
+            position: absolute;
+            content: "";
+            left: 10px;
+            right: 0;
+            bottom: 0;
+            height: 2.5px;
+            background: #3E2942;
+
+        }
+
+            
+            h1,h2{
+                padding: 10px;
+                font-family: "Space Grotesk", sans-serif;
+                font-weight: 700;
+                
+
+            }
+
+            button{
+                background: none;
+                border: none;
+                font-family: "DM Mono", monospace;
+                font-weight: 500;
+                
+
+            }
+
+            button:hover{
+                border-color: #2c6da8;
+            }
+
+            .controls{
+                font-family: "DM Mono", monospace;
+font-weight: 500;
+
+            }
+
+            .game-area{
+                outline-color: none;
+            }
+
+            
+
+            .canvas {
+                background: #ffe98e;
+            }
+
+            .fotter{
+                display: flex;
+            
+            }
+            
+            .fotter> * {
+                margin: 7px;
+            }
+            .fotter>span{
+                margin-left: 7px;
+                margin-right: 7px;
+            }
+            .fotter> p {
+                color: #29282D;
+            }
+
+            kbd{
+                background: #3E2942;
+                color:#fff0a6;
+                padding-left: 5px;
+                padding-right: 5px;
+                margin-left: 7px;
+                margin-right: 7px;
+            }
+
+            .controls-btn{
+                width: 180px;
+                height: 140px;
+                display: grid;
+                grid-template-columns: 58% 42%;
+                grid-template-rows: 50% 50%;
+                position: relative;
+                
+            }
+
+            .controls-btn > button{
+                border-radius: 6px ;
+                border: #29282D solid 0.5px;
+            }
+
+            .controls-btn::after{
+                content: "";
+                position: absolute;
+                background: #3E2942;
+                height: 1.5px;
+                width: 100%;
+                bottom: 0;
+            }
+
+            .play-btn{
+                background: #FF7614;
+            }
+            .pause-btn{
+                background: #176DE0;
+
+            }
+
+
+            
+            .reset-btn{
+                grid-column : 1/3;
+                margin: 6% 0 6% 0;;
+                background: #FF7614;
+            }
+
+
+            .reset-btn > img{
+                width: 100%;
+                height: 100%;
+            }
+        
+
+
+        </style>
+        <meta charset="UTF-8">
+        
+        <title>ملفي الشخصي</title>
+    </head>
+    <body>
+        
+
+        <div  class="real-header">
+            <div class="logo"><img  src="landscape.svg"></div>
+            
+            <div class="header">
+
+                
+                <h1 id="title">SAND SIMULATOR</h1>
+        <h2>a falling particles experiment</h2>
+        <span class="header-note">FREE PLAY / 01</span>
+                </div>
+                    
+        </div>
+
+        <div class="game">
+
+
+            <div class="material-button">
+            <button class="sand-btn">
+                <img src="sand.svg" alt="sand">
+            </button>
+            <button class="water-btn">
+                <img src="water.svg" alt="water">
+            </button>
+            <button class="stone-btn">
+                <img src="wall.svg">
+            </button>
+            <button class="fire-btn">
+                <img src="wind.svg">
+            </button>
+            <button class="oils-btn">
+                <img src="erase.svg">
+            </button>
+        </div>
+
+            <div class="game-area">
+                    <canvas class="canvas"></canvas>
+        </div>
+
+        <div class="controls">
+
+            <div class="controls-btn">
+            <button class="play-btn"><img src="play.svg"></button>
+            <button class="pause-btn"><img src="pause.svg"></button>
+            <button class="reset-btn"><img src="reset.svg"></button>
+            </div>
+
+            
+            
+        <p class="current-matrial">Selected : </p>
+        <p class="Particles">Particles : </p>
+        <p class="fps">FPS : </p>
+        <div class="control-button">
+            
+
+        </div>
+        </div>
+
+        </div>
+
+        <div class="fotter">
+            <kbd>space</kbd>
+            <p>pause</p>
+            <span>|</span>
+            <kbd>R</kbd>
+            <p>reset</p>
+
+        </div>
+
+
+        
+        
+
+
+    </body>
+</html>
+
+
+
